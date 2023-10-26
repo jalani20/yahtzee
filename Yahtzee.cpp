@@ -25,7 +25,7 @@ public:
 	void roll();
 	int reveal() { return value; }
 
-	// The autograder will set the values directly instead of calling roll() to avoid randomness!
+	
 	void setValue(int value) { this->value = value; }
 };
 
@@ -232,22 +232,6 @@ void Game::show()
 			cout << "Total:              " << getTotalScore() << endl;
 		}
 	}
-	// cout << "1. Ones:            " << rowPlayed[0] << endl;
-	// cout << "2. Twos:            " << rowPlayed[1] << endl;
-	// cout << "3. Threes:          " << rowPlayed[2] << endl;
-	// cout << "4. Fours:           " << rowPlayed[3] << endl;
-	// cout << "5. Fives:           " << rowPlayed[4] << endl;
-	// cout << "6. Sixes:           " << rowPlayed[5] << endl;
-	// cout << "Sum:                " << getUpperScore() << endl;
-	// cout << "Bonus:              " << getBonusScore() << endl;
-	// cout << "7. Three of a kind: " << rowPlayed[6] << endl;
-	// cout << "8. Four of a kind:  " << rowPlayed[7] << endl;
-	// cout << "9. Full house:      " << rowPlayed[8] << endl;
-	// cout << "10. Small straight: " << rowPlayed[9] << endl;
-	// cout << "11. Large straight: " << rowPlayed[10] << endl;
-	// cout << "12. Chance:         " << rowPlayed[11] << endl;
-	// cout << "13. Yahtzee :       " << rowPlayed[12] << endl;
-	// cout << "Total:              " << getTotalScore() << endl;
 }
 
 int Game::calcScore(Hand *hand, int row)
@@ -456,7 +440,6 @@ bool Game::isFinished()
 
 //#######################################################################################
 
-// The run function is the main loop of your program
 
 void run()
 {
@@ -464,12 +447,6 @@ void run()
 
 	// Create the hand
 	Hand *hand = new Hand();
-
-	// hand->getDice(0)->setValue(1);
-	// hand->getDice(1)->setValue(2);
-	// hand->getDice(2)->setValue(3);
-	// hand->getDice(3)->setValue(4);
-	// hand->getDice(4)->setValue(5);
 
 	while (!game.isFinished())
 	{
@@ -507,7 +484,7 @@ void run()
 
 		switch (selectCombo)
 		{
-			// calling play() instead of calcScore
+	
 		case 1:
 			game.play(hand, ONES);
 			break;
@@ -556,83 +533,11 @@ void run()
 	game.show();
 }
 
-// For these types of programs there exists many combinations that you might have missed.
-// The best way to check them all is to write test cases for your program.
-// Here I give you an example of checking large straight. You can design your own test cases for different parts.
-/**
-void test_case() {
-	Game game;
-	Hand* hand = new Hand();
-	hand->getDice(0)->setValue(1);
-	hand->getDice(1)->setValue(2);
-	hand->getDice(2)->setValue(3);
-	hand->getDice(3)->setValue(4);
-	hand->getDice(4)->setValue(5);
 
-	bool check1 = true;
-	if (game.calcScore(hand, LARGE_STRAIGHT) != 40) {
-		check1 = false;
-	}
-	if (check1) {
-		cout << "check 1 passed\n";
-	}
-
-	hand->getDice(0)->setValue(2);
-	hand->getDice(1)->setValue(6);
-	hand->getDice(2)->setValue(4);
-	hand->getDice(3)->setValue(3);
-	hand->getDice(4)->setValue(5);
-
-	bool check2 = true;
-	if (game.calcScore(hand, LARGE_STRAIGHT) != 40) {
-		check2 = false;
-	}
-
-	if (check2) {
-		cout << "check 2 passed\n";
-	}
-
-	hand->getDice(0)->setValue(3);
-	hand->getDice(1)->setValue(2);
-	hand->getDice(2)->setValue(5);
-	hand->getDice(3)->setValue(6);
-	hand->getDice(4)->setValue(3);
-
-	bool check3 = true;
-	if (game.calcScore(hand, LARGE_STRAIGHT) != 0) {
-		check3 = false;
-	}
-
-	if (check3) {
-		cout << "check 3 passed\n";
-	}
-
-	hand->getDice(0)->setValue(1);
-	hand->getDice(1)->setValue(2);
-	hand->getDice(2)->setValue(3);
-	hand->getDice(3)->setValue(4);
-	hand->getDice(4)->setValue(6);
-
-	bool check4 = true;
-	if (game.calcScore(hand, LARGE_STRAIGHT) != 0) {
-		check4 = false;
-	}
-
-	if (check4) {
-		cout << "check 4 passed\n";
-	}
-
-
-}
-**/
-// THE AUTOGRADER WILL REPLACE THE MAIN FUNCTION.
-// DO NOT ADD ANY LOGIC OF YOUR PROGRAM HERE.
 int main()
 {
-
 	srand(time(0));
 	run();
-	//test_case();
 
 	return 0;
 }
